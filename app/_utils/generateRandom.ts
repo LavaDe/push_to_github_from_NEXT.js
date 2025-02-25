@@ -12,7 +12,17 @@ const getRandomString = (length: number): string => {
   return result;
 };
 
-export const generateRandomObject = (): any => {
+export type jsonData = {
+    name: string,
+    email: string,
+    age: number,
+    price: number,
+    stock: number,
+    quantity: number,
+    totalPrice:number}
+
+
+export const generateRandomObject = (): jsonData => {
   return {
     name: getRandomString(10),
     email: `${getRandomString(5)}@example.com`,

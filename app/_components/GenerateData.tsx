@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { generateRandomObject } from "../_utils/generateRandom";
+import { generateRandomObject, jsonData } from "../_utils/generateRandom";
 import UpdateButton from "./UpdateButton";
 
 
 export default function GenerateData() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<jsonData | null>(null);
 
   useEffect(() => {
     setData(generateRandomObject());

@@ -3,9 +3,13 @@
 import { useState, useTransition } from "react";
 import { updateJson } from "@/actions/updateJson";
 import Image from 'next/image';
+import { jsonData } from "../_utils/generateRandom";
 
+type UpdateButtonProps = {
+    data: jsonData;
+}
 
-export default function UpdateButton(newJsonData: any) {
+export default function UpdateButton({ data }: UpdateButtonProps) {
     const [message, setMessage] = useState("");
     const [isPending, startTransition] = useTransition();
 
@@ -15,7 +19,7 @@ export default function UpdateButton(newJsonData: any) {
         
 
         startTransition(async () => {
-            const result = await updateJson(newJsonData);
+            const result = await updateJson(data);
 
             if (result.success) {
                 setMessage(`Success! Commit: ${result.commitUrl}`);
